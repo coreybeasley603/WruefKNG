@@ -1,7 +1,6 @@
 #  Copyright (c) Meta Platforms, Inc. and affiliates.
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
-#  you may not use this file except in compliance with the License.
 #  You may obtain a copy of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
@@ -30,7 +29,6 @@ class GeneralizedRCNN(nn.Module):
         self._num_mask_roi = cfg.POSTPROCESS.TOPK
 
         self.backbone = build_resnet_fpn_backbone(cfg)
-        self.proposal_generator = build_rpn_head(cfg, im_shape)
         self.roi_heads = build_roi_heads(cfg, im_shape)
         self._params = self.get_params()
 
